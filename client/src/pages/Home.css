@@ -1,0 +1,317 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: transparent;
+}
+
+.home-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-glass);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.65),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(24px);
+}
+
+.logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(255, 108, 171, 0.9);
+}
+
+.home-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #ffffff, var(--accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+}
+
+.subtitle span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mode-selection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.mode-chip {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.18s ease;
+}
+
+.mode-chip span.label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+.mode-chip span.desc {
+  font-size: 0.7rem;
+}
+
+.mode-chip.active {
+  border-color: var(--accent);
+  background: radial-gradient(circle at top left, var(--accent-soft), rgba(15, 23, 42, 0.95));
+  box-shadow: 0 0 25px rgba(255, 108, 171, 0.3);
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.input-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: -4px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.85);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.input-field::placeholder {
+  color: rgba(148, 163, 184, 0.7);
+}
+
+.input-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(255, 108, 171, 0.5);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), #ff9f6c);
+  color: #0b1020;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+}
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-secondary);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.btn-secondary:hover {
+  background: rgba(15, 23, 42, 1);
+}
+
+.footer-note {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-blue);
+  box-shadow: 0 0 10px rgba(79, 157, 255, 0.8);
+}
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.home-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 26px 22px 20px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-glass);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.65),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(24px);
+}
+
+/* ... keep your previous Home.css content from earlier answer ... */
+
+.tone-section {
+  margin-top: 8px;
+}
+
+.tone-pills {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tone-pill {
+  flex: 1;
+  padding: 7px 0;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.tone-pill.active {
+  border-color: var(--accent);
+  background: radial-gradient(circle at top left, var(--accent-soft), rgba(15, 23, 42, 0.98));
+  color: var(--text-primary);
+}
+
+/* Recap modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+}
+
+.modal-card {
+  width: 90%;
+  max-width: 380px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid var(--border-glass);
+  padding: 18px 18px 16px;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.9);
+}
+
+.modal-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.modal-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.modal-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.modal-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.modal-btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 480px) {
+  .home-card {
+    padding: 22px 18px 18px;
+    border-radius: 20px;
+  }
+
+  .home-title {
+    font-size: 1.8rem;
+  }
+}
