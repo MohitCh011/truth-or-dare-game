@@ -15,6 +15,7 @@ function App() {
   const [playerNumber, setPlayerNumber] = useState(null);
   const [inGame, setInGame] = useState(false);
   const [sessionTone, setSessionTone] = useState('CHILL');
+  const [gameMode, setGameMode] = useState('RANDOM');
   const [showIntro, setShowIntro] = useState(true);
   const [recapData, setRecapData] = useState(null);
 
@@ -66,11 +67,12 @@ function App() {
     };
   }, []);
 
-  const handleCreateRoom = (name, tone) => {
+  const handleCreateRoom = (name, tone, mode) => {
     setPlayerName(name);
     setSessionTone(tone);
+    setGameMode(mode);
     socket.connect();
-    socket.emit('create_room', { playerName: name, tone });
+    socket.emit('create_room', { playerName: name, tone, gameMode: mode });
   };
 
   const handleJoinRoom = (code, name) => {
@@ -109,6 +111,7 @@ function App() {
           playerName={playerName}
           playerNumber={playerNumber}
           sessionTone={sessionTone}
+          gameMode={gameMode}
         />
       )}
     </div>

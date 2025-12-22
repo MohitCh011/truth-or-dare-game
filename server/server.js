@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const { getUniqueRandomQuestion } = require('./data/questionDatabase');
 require('dotenv').config();
 
 const app = express();
@@ -30,7 +31,7 @@ io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
   // Create a new room
-  socket.on('create_room', ({ playerName, tone }) => {
+  socket.on('create_room', ({ playerName, tone, gameMode }) => {
     const roomCode = generateRoomCode();
 
     rooms.set(roomCode, {
@@ -44,17 +45,19 @@ io.on('connection', (socket) => {
       currentTurn: 1,
       messages: [],
       tone: tone || 'CHILL',
+      gameMode: gameMode || 'RANDOM',
       rounds: 0,
       truthCount: 0,
       dareCount: 0,
       startedByP1: 0,
       startedByP2: 0,
       ready: {}, // for "both ready" screen
+      usedQuestions: [], // track used questions in random mode
     });
 
     socket.join(roomCode);
     socket.emit('room_created', { roomCode, playerNumber: 1, playerName });
-    console.log(`Room ${roomCode} created by ${playerName} with tone ${tone}`);
+    console.log(`Room ${roomCode} created by ${playerName} with tone ${tone} and mode ${gameMode}`);
   });
 
   // Join existing room
@@ -144,6 +147,22 @@ io.on('connection', (socket) => {
     const room = rooms.get(roomCode);
     if (room) {
       io.to(roomCode).emit('vibe_changed', { playerNumber, vibe });
+    }
+  });
+
+  // Get random question for random mode
+  socket.on('get_random_question', ({ roomCode, choice }) => {
+    const room = rooms.get(roomCode);
+    if (!room) return;
+
+    if (room.gameMode === 'RANDOM') {
+      const questionType = choice === 'Truth' ? 'truths' : 'dares';
+      const question = getUniqueRandomQuestion(room.tone, questionType, room.usedQuestions);
+
+      if (question) {
+        room.usedQuestions.push(question);
+        io.to(roomCode).emit('random_question', { question, choice });
+      }
     }
   });
 
